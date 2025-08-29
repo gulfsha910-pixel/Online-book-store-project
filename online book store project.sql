@@ -188,6 +188,9 @@ ORDER BY Total_spent Desc LIMIT 1;
 SELECT b.book_id, b.title, b.stock, COALESCE(SUM(o.quantity),0) AS Order_quantity,  
 	b.stock- COALESCE(SUM(o.quantity),0) AS Remaining_Quantity
 FROM books b
-LEFT JOIN orders o ON b.book_id=o.book_i
+LEFT JOIN orders o ON b.book_id=o.book_id
+GROUP BY b.book_id 
+ORDER BY b.book_id ;
 
+----end project
 
